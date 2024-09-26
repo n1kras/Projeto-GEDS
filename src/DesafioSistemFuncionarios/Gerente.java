@@ -1,3 +1,5 @@
+package DesafioSistemFuncionarios;
+
 public class Gerente extends Funcionario {
     private double bonusSalarial;
 
