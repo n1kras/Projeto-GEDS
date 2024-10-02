@@ -1,12 +1,17 @@
 package DesafioSistemFuncionarios;
 
+import DesafioSistemFuncionarios.exceptions.InvalidInputException;
+
 public class Funcionario {
     private String nome;
     private double salarioBase;
 
-    public Funcionario(String nome, double salarioBase) {
+    public Funcionario(String nome, double salarioBase) throws InvalidInputException {
         this.nome = nome;
         this.salarioBase = salarioBase;
+        if (salarioBase < 0) {
+            throw new InvalidInputException();
+        }
     }
 
     public String getNome() {
@@ -21,7 +26,10 @@ public class Funcionario {
         return salarioBase;
     }
 
-    public void setSalarioBase(double salarioBase) {
+    public void setSalarioBase(double salarioBase) throws InvalidInputException {
+        if (salarioBase < 0) {
+            throw new InvalidInputException();
+        }
         this.salarioBase = salarioBase;
     }
 

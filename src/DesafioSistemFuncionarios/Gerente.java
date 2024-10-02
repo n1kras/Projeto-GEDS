@@ -1,10 +1,15 @@
 package DesafioSistemFuncionarios;
 
+import DesafioSistemFuncionarios.exceptions.InvalidInputException;
+
 public class Gerente extends Funcionario {
     private double bonusSalarial;
 
-    public Gerente(String nome, double salarioBase) {
+    public Gerente(String nome, double salarioBase) throws InvalidInputException {
         super(nome, salarioBase);
+        if (salarioBase < 0) {
+            throw new InvalidInputException();
+        }
     }
 
     public double getBonusSalarial() {

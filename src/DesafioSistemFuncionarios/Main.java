@@ -1,12 +1,45 @@
 package DesafioSistemFuncionarios;
+import DesafioSistemFuncionarios.exceptions.InvalidInputException;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Funcionario funcionario = new Funcionario("Nicolas", 800.0);
-        Gerente gerente = new Gerente("Pablo", 1400.0);
-        gerente.setBonusSalarial(800.0);
+    public static void main(String[] args) throws InvalidInputException {
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("DesafioSistemFuncionarios.Funcionario: " + funcionario.getNome() + " - Salario: R$" + funcionario.calcularSalario());
-        System.out.println("DesafioSistemFuncionarios.Gerente: " + gerente.getNome() + " - Salario: R$" + gerente.calcularSalario());
+        System.out.println("Digite o nome do funcionário: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Digite o salário base do funcionário: ");
+        double salario = Double.parseDouble(scanner.nextLine());
+        if (salario < 0) {
+            System.out.println("Você digitou um número inválido! Tente valores positivos na próxima");
+            throw new InvalidInputException();
+        }
+        Funcionario funcionario = new Funcionario(nome, salario);
+
+        System.out.println("Digite o nome do gerente: ");
+        nome = scanner.nextLine();
+
+        System.out.println("Digite o salário base do gerente: ");
+        salario = Double.parseDouble(scanner.nextLine());
+        if (salario < 0) {
+            System.out.println("Você digitou um número inválido! Tente valores positivos na próxima");
+            throw new InvalidInputException();
+        }
+        System.out.println("Insira o bônus salarial: ");
+        double bonus = Double.parseDouble(scanner.nextLine());
+        if (bonus < 0) {
+            System.out.println("Você digitou um número inválido! Tente valores positivos na próxima");
+            throw new InvalidInputException();
+        }
+
+
+        Gerente gerente = new Gerente(nome, salario);
+        gerente.setBonusSalarial(bonus);
+
+        System.out.println("Funcionario: " + funcionario.getNome() + " - Salario: R$" + funcionario.calcularSalario());
+        System.out.println("Gerente: " + gerente.getNome() + " - Salario: R$" + gerente.calcularSalario());
+
+        scanner.close();
     }
 }
