@@ -1,0 +1,3 @@
+1.	O desenvolvimento front-end é o desenvolvimento da interface gráfica de um sistema, aplicativo ou site, ou seja, tudo aquilo que o usuário final pode ver e interagir. Ele utiliza de linguagens como HTML para criar o layout e JavaScript para a funcionalidade dos elementos na tela.
+
+2.	Enquanto o desenvolvimento front-end foca no visual, aquilo que será visto e que poderá receber interação do usuário, o back-end foca na estrutura por trás desta interface visual, como a lógica de negócios, o banco de dados e a comunicação dele com a interface, além de questões de segurança, atualizações e etc.
